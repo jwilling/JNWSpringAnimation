@@ -1,0 +1,326 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		ABB1A1D216CF15440009FA03 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB1A1D116CF15440009FA03 /* Cocoa.framework */; };
+		ABB1A1DC16CF15440009FA03 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABB1A1DA16CF15440009FA03 /* InfoPlist.strings */; };
+		ABB1A1DE16CF15440009FA03 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB1A1DD16CF15440009FA03 /* main.m */; };
+		ABB1A1E216CF15440009FA03 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = ABB1A1E016CF15440009FA03 /* Credits.rtf */; };
+		ABB1A1E516CF15440009FA03 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB1A1E416CF15440009FA03 /* AppDelegate.m */; };
+		ABB1A1E816CF15440009FA03 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABB1A1E616CF15440009FA03 /* MainMenu.xib */; };
+		ABB1A1EF16CF179F0009FA03 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB1A1EE16CF179F0009FA03 /* QuartzCore.framework */; };
+		ABB1A1F216CF1C490009FA03 /* JNWSpringAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB1A1F116CF1C490009FA03 /* JNWSpringAnimation.m */; };
+		ABB1A1FB16D0B8BC0009FA03 /* NumberTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB1A1FA16D0B8BC0009FA03 /* NumberTransformer.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		ABB1A1CE16CF15440009FA03 /* JNWSpringAnimationDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JNWSpringAnimationDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABB1A1D116CF15440009FA03 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		ABB1A1D416CF15440009FA03 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		ABB1A1D516CF15440009FA03 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		ABB1A1D616CF15440009FA03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		ABB1A1D916CF15440009FA03 /* JNWSpringAnimationDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JNWSpringAnimationDemo-Info.plist"; sourceTree = "<group>"; };
+		ABB1A1DB16CF15440009FA03 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		ABB1A1DD16CF15440009FA03 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		ABB1A1DF16CF15440009FA03 /* JNWSpringAnimationDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JNWSpringAnimationDemo-Prefix.pch"; sourceTree = "<group>"; };
+		ABB1A1E116CF15440009FA03 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		ABB1A1E316CF15440009FA03 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		ABB1A1E416CF15440009FA03 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		ABB1A1E716CF15440009FA03 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		ABB1A1EE16CF179F0009FA03 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		ABB1A1F016CF1C490009FA03 /* JNWSpringAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JNWSpringAnimation.h; path = ../../JNWSpringAnimation.h; sourceTree = "<group>"; };
+		ABB1A1F116CF1C490009FA03 /* JNWSpringAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JNWSpringAnimation.m; path = ../../JNWSpringAnimation.m; sourceTree = "<group>"; };
+		ABB1A1F916D0B8BC0009FA03 /* NumberTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberTransformer.h; sourceTree = "<group>"; };
+		ABB1A1FA16D0B8BC0009FA03 /* NumberTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberTransformer.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ABB1A1CB16CF15440009FA03 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABB1A1EF16CF179F0009FA03 /* QuartzCore.framework in Frameworks */,
+				ABB1A1D216CF15440009FA03 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ABB1A1C516CF15440009FA03 = {
+			isa = PBXGroup;
+			children = (
+				ABB1A1D716CF15440009FA03 /* JNWSpringAnimationDemo */,
+				ABB1A1D016CF15440009FA03 /* Frameworks */,
+				ABB1A1CF16CF15440009FA03 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ABB1A1CF16CF15440009FA03 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ABB1A1CE16CF15440009FA03 /* JNWSpringAnimationDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ABB1A1D016CF15440009FA03 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABB1A1EE16CF179F0009FA03 /* QuartzCore.framework */,
+				ABB1A1D116CF15440009FA03 /* Cocoa.framework */,
+				ABB1A1D316CF15440009FA03 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ABB1A1D316CF15440009FA03 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ABB1A1D416CF15440009FA03 /* AppKit.framework */,
+				ABB1A1D516CF15440009FA03 /* CoreData.framework */,
+				ABB1A1D616CF15440009FA03 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		ABB1A1D716CF15440009FA03 /* JNWSpringAnimationDemo */ = {
+			isa = PBXGroup;
+			children = (
+				ABB1A1E316CF15440009FA03 /* AppDelegate.h */,
+				ABB1A1E416CF15440009FA03 /* AppDelegate.m */,
+				ABB1A1E616CF15440009FA03 /* MainMenu.xib */,
+				ABB1A1D816CF15440009FA03 /* Supporting Files */,
+				ABB1A1F016CF1C490009FA03 /* JNWSpringAnimation.h */,
+				ABB1A1F116CF1C490009FA03 /* JNWSpringAnimation.m */,
+				ABB1A1F916D0B8BC0009FA03 /* NumberTransformer.h */,
+				ABB1A1FA16D0B8BC0009FA03 /* NumberTransformer.m */,
+			);
+			path = JNWSpringAnimationDemo;
+			sourceTree = "<group>";
+		};
+		ABB1A1D816CF15440009FA03 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				ABB1A1D916CF15440009FA03 /* JNWSpringAnimationDemo-Info.plist */,
+				ABB1A1DA16CF15440009FA03 /* InfoPlist.strings */,
+				ABB1A1DD16CF15440009FA03 /* main.m */,
+				ABB1A1DF16CF15440009FA03 /* JNWSpringAnimationDemo-Prefix.pch */,
+				ABB1A1E016CF15440009FA03 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ABB1A1CD16CF15440009FA03 /* JNWSpringAnimationDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABB1A1EB16CF15440009FA03 /* Build configuration list for PBXNativeTarget "JNWSpringAnimationDemo" */;
+			buildPhases = (
+				ABB1A1CA16CF15440009FA03 /* Sources */,
+				ABB1A1CB16CF15440009FA03 /* Frameworks */,
+				ABB1A1CC16CF15440009FA03 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JNWSpringAnimationDemo;
+			productName = JNWSpringAnimationDemo;
+			productReference = ABB1A1CE16CF15440009FA03 /* JNWSpringAnimationDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ABB1A1C616CF15440009FA03 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = AppJon;
+			};
+			buildConfigurationList = ABB1A1C916CF15440009FA03 /* Build configuration list for PBXProject "JNWSpringAnimationDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = ABB1A1C516CF15440009FA03;
+			productRefGroup = ABB1A1CF16CF15440009FA03 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ABB1A1CD16CF15440009FA03 /* JNWSpringAnimationDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ABB1A1CC16CF15440009FA03 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABB1A1DC16CF15440009FA03 /* InfoPlist.strings in Resources */,
+				ABB1A1E216CF15440009FA03 /* Credits.rtf in Resources */,
+				ABB1A1E816CF15440009FA03 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ABB1A1CA16CF15440009FA03 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ABB1A1DE16CF15440009FA03 /* main.m in Sources */,
+				ABB1A1E516CF15440009FA03 /* AppDelegate.m in Sources */,
+				ABB1A1F216CF1C490009FA03 /* JNWSpringAnimation.m in Sources */,
+				ABB1A1FB16D0B8BC0009FA03 /* NumberTransformer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		ABB1A1DA16CF15440009FA03 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABB1A1DB16CF15440009FA03 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		ABB1A1E016CF15440009FA03 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABB1A1E116CF15440009FA03 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		ABB1A1E616CF15440009FA03 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ABB1A1E716CF15440009FA03 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ABB1A1E916CF15440009FA03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		ABB1A1EA16CF15440009FA03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		ABB1A1EC16CF15440009FA03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JNWSpringAnimationDemo/JNWSpringAnimationDemo-Prefix.pch";
+				INFOPLIST_FILE = "JNWSpringAnimationDemo/JNWSpringAnimationDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		ABB1A1ED16CF15440009FA03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JNWSpringAnimationDemo/JNWSpringAnimationDemo-Prefix.pch";
+				INFOPLIST_FILE = "JNWSpringAnimationDemo/JNWSpringAnimationDemo-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ABB1A1C916CF15440009FA03 /* Build configuration list for PBXProject "JNWSpringAnimationDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABB1A1E916CF15440009FA03 /* Debug */,
+				ABB1A1EA16CF15440009FA03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABB1A1EB16CF15440009FA03 /* Build configuration list for PBXNativeTarget "JNWSpringAnimationDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABB1A1EC16CF15440009FA03 /* Debug */,
+				ABB1A1ED16CF15440009FA03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ABB1A1C616CF15440009FA03 /* Project object */;
+}
