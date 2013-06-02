@@ -1328,7 +1328,6 @@
 							<int key="NSvFlags">293</int>
 							<string key="NSFrame">{{293, 13}, {93, 32}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
-							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="578764635">
@@ -1697,7 +1696,7 @@
 								<string key="NSKeyEquivalent"/>
 								<int key="NSPeriodicDelay">400</int>
 								<int key="NSPeriodicInterval">75</int>
-								<object class="NSMenuItem" key="NSMenuItem" id="742371518">
+								<object class="NSMenuItem" key="NSMenuItem" id="253522829">
 									<reference key="NSMenu" ref="817756392"/>
 									<string key="NSTitle">bounds</string>
 									<string key="NSKeyEquiv"/>
@@ -1764,7 +1763,7 @@
 											<string key="NSAction">_popUpItemAction:</string>
 											<reference key="NSTarget" ref="543259816"/>
 										</object>
-										<reference ref="742371518"/>
+										<reference ref="253522829"/>
 									</array>
 									<reference key="NSMenuFont" ref="798755615"/>
 								</object>
@@ -3836,7 +3835,7 @@
 							<reference ref="1013054869"/>
 							<reference ref="427594723"/>
 							<reference ref="647392115"/>
-							<reference ref="742371518"/>
+							<reference ref="253522829"/>
 						</array>
 						<reference key="parent" ref="543259816"/>
 					</object>
@@ -3867,7 +3866,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">703</int>
-						<reference key="object" ref="742371518"/>
+						<reference key="object" ref="253522829"/>
 						<reference key="parent" ref="817756392"/>
 					</object>
 				</array>

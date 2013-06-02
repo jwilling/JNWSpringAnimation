@@ -16,6 +16,7 @@
 		ABB1A1EF16CF179F0009FA03 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB1A1EE16CF179F0009FA03 /* QuartzCore.framework */; };
 		ABB1A1F216CF1C490009FA03 /* JNWSpringAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB1A1F116CF1C490009FA03 /* JNWSpringAnimation.m */; };
 		ABB1A1FB16D0B8BC0009FA03 /* NumberTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = ABB1A1FA16D0B8BC0009FA03 /* NumberTransformer.m */; };
+		ABFB799C175BD36B00239AAB /* NSValue+JNWAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = ABFB799B175BD36B00239AAB /* NSValue+JNWAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		ABB1A1F116CF1C490009FA03 /* JNWSpringAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JNWSpringAnimation.m; path = ../../JNWSpringAnimation.m; sourceTree = "<group>"; };
 		ABB1A1F916D0B8BC0009FA03 /* NumberTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberTransformer.h; sourceTree = "<group>"; };
 		ABB1A1FA16D0B8BC0009FA03 /* NumberTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumberTransformer.m; sourceTree = "<group>"; };
+		ABFB799A175BD36B00239AAB /* NSValue+JNWAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSValue+JNWAdditions.h"; path = "../../NSValue+JNWAdditions.h"; sourceTree = "<group>"; };
+		ABFB799B175BD36B00239AAB /* NSValue+JNWAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSValue+JNWAdditions.m"; path = "../../NSValue+JNWAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,12 +95,11 @@
 		ABB1A1D716CF15440009FA03 /* JNWSpringAnimationDemo */ = {
 			isa = PBXGroup;
 			children = (
+				ABFB7999175BD35200239AAB /* JNWSpringAnimation */,
 				ABB1A1E316CF15440009FA03 /* AppDelegate.h */,
 				ABB1A1E416CF15440009FA03 /* AppDelegate.m */,
 				ABB1A1E616CF15440009FA03 /* MainMenu.xib */,
 				ABB1A1D816CF15440009FA03 /* Supporting Files */,
-				ABB1A1F016CF1C490009FA03 /* JNWSpringAnimation.h */,
-				ABB1A1F116CF1C490009FA03 /* JNWSpringAnimation.m */,
 				ABB1A1F916D0B8BC0009FA03 /* NumberTransformer.h */,
 				ABB1A1FA16D0B8BC0009FA03 /* NumberTransformer.m */,
 			);
@@ -114,6 +116,17 @@
 				ABB1A1E016CF15440009FA03 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ABFB7999175BD35200239AAB /* JNWSpringAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				ABB1A1F016CF1C490009FA03 /* JNWSpringAnimation.h */,
+				ABB1A1F116CF1C490009FA03 /* JNWSpringAnimation.m */,
+				ABFB799A175BD36B00239AAB /* NSValue+JNWAdditions.h */,
+				ABFB799B175BD36B00239AAB /* NSValue+JNWAdditions.m */,
+			);
+			name = JNWSpringAnimation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,6 +197,7 @@
 				ABB1A1E516CF15440009FA03 /* AppDelegate.m in Sources */,
 				ABB1A1F216CF1C490009FA03 /* JNWSpringAnimation.m in Sources */,
 				ABB1A1FB16D0B8BC0009FA03 /* NumberTransformer.m in Sources */,
+				ABFB799C175BD36B00239AAB /* NSValue+JNWAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +333,7 @@
 				ABB1A1ED16CF15440009FA03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

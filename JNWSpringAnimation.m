@@ -1,5 +1,5 @@
 #import "JNWSpringAnimation.h"
-#import <objc/runtime.h>
+#import "NSValue+JNWAdditions.h"
 
 static const NSInteger JNWSpringAnimationKeyframes = 60;
 static const CGFloat JNWSpringAnimationDefaultMass = 5.f;
@@ -82,10 +82,10 @@ static const CGFloat JNWSpringAnimationMinimumThreshold = 0.0001f;
 			return @(value);
 		}];
 	} else if ([self.keyPath isEqualToString:@"position"]) {
-		CGPoint fromValue = [self.fromValue pointValue];
-		CGPoint toValue = [self.toValue pointValue];
+		CGPoint fromValue = [self.fromValue jnw_pointValue];
+		CGPoint toValue = [self.toValue jnw_pointValue];
 		values = [self valuesFrom:@(fromValue.x) to:@(toValue.x) from:@(fromValue.y) to:@(toValue.y) map:^id(CGFloat value1, CGFloat value2) {
-			return [NSValue valueWithPoint:CGPointMake(value1, value2)];
+			return [NSValue jnw_valueWithPoint:CGPointMake(value1, value2)];
 		}];
 	} else if ([self.keyPath isEqualToString:@"transform"]) {
 		CATransform3D fromValue = [self.fromValue CATransform3DValue];
@@ -94,16 +94,16 @@ static const CGFloat JNWSpringAnimationMinimumThreshold = 0.0001f;
 			return [NSValue valueWithCATransform3D:CATransform3DMakeScale(value1, value2, value3)];
 		}];
 	} else if ([self.keyPath isEqualToString:@"transform.translation"]) {
-		CGSize fromValue = [self.fromValue sizeValue];
-		CGSize toValue = [self.toValue sizeValue];
+		CGSize fromValue = [self.fromValue jnw_sizeValue];
+		CGSize toValue = [self.toValue jnw_sizeValue];
 		values = [self valuesFrom:@(fromValue.width) to:@(toValue.width) from:@(fromValue.height) to:@(toValue.height) map:^id(CGFloat value1, CGFloat value2) {
-			return [NSValue valueWithSize:CGSizeMake(value1, value2)];
+			return [NSValue jnw_valueWithSize:CGSizeMake(value1, value2)];
 		}];
 	} else if ([self.keyPath isEqualToString:@"bounds"]) { // the `frame` property is not animatable
-		CGRect fromValue = [self.fromValue rectValue];
-		CGRect toValue = [self.toValue rectValue];
+		CGRect fromValue = [self.fromValue jnw_rectValue];
+		CGRect toValue = [self.toValue jnw_rectValue];
 		values = [self valuesFrom:@(fromValue.origin.x) to:@(toValue.origin.x) from:@(fromValue.origin.y) to:@(toValue.origin.y) from:@(fromValue.size.width) to:@(toValue.size.width) from:@(fromValue.size.height) to:@(toValue.size.height) map:^id(CGFloat value1, CGFloat value2, CGFloat value3, CGFloat value4) {
-			return [NSValue valueWithRect:CGRectMake(value1, value2, value3, value4)];
+			return [NSValue jnw_valueWithRect:CGRectMake(value1, value2, value3, value4)];
 		}];
 	}
 	
