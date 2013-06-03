@@ -41,7 +41,7 @@ Spring animations, when used appropriately, can really enhance the way your app 
 I created this as a weekend project, so the implementation is still somewhat unfinished. Compared to `CASpringAnimation`, the `velocity` property is still unimplemented. Pull requests are welcome.
 
 ## License ##
-`JNWLabel` is licensed under the [MIT](http://opensource.org/licenses/MIT) license. See [LICENSE.md](LICENSE.md).
+`JNWSpringAnimation` is licensed under the [MIT](http://opensource.org/licenses/MIT) license. See [LICENSE.md](LICENSE.md).
 
 
 ## Get In Touch ##
