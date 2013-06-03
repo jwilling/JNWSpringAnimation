@@ -28,6 +28,18 @@
 @interface JNWSpringAnimation : CAKeyframeAnimation
 
 // The dedicated initializer for the animation.
+//
+// Not all layer properties can be animated. The following are compatible:
+// - position
+// - position.{x, y}
+// - cornerRadius
+// - shadowRadius
+// - bounds
+// - bounds.size
+// - transform.translation.{x, y, z}
+// - transform.rotation.{x, y, z}
+// - transform.scale.{x, y, z}
+// - transform.translation
 + (instancetype)animationWithKeyPath:(NSString *)path;
 
 // A damped spring can be modeled with the following equation:
