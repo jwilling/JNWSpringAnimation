@@ -105,7 +105,9 @@ static const CGFloat JNWSpringAnimationMinimumThreshold = 0.0001f;
 		values = [self valuesFrom:@(fromValue.x) to:@(toValue.x) from:@(fromValue.y) to:@(toValue.y) map:^id(CGFloat value1, CGFloat value2) {
 			return [NSValue jnw_valueWithPoint:CGPointMake(value1, value2)];
 		}];
-	} else if ([self.keyPath isEqualToString:@"transform"]) {
+	}
+	// This is not implemented correctly, and has therefore been omitted from the compatible key paths in the header
+	else if ([self.keyPath isEqualToString:@"transform"]) {
 		CATransform3D fromValue = [self.fromValue CATransform3DValue];
 		CATransform3D toValue = [self.toValue CATransform3DValue];
 		values = [self valuesFrom:@(fromValue.m11) to:@(toValue.m11) from:@(fromValue.m22) to:@(toValue.m22) from:@(fromValue.m33) to:@(toValue.m33) map:^id(CGFloat value1, CGFloat value2, CGFloat value3) {
@@ -122,6 +124,12 @@ static const CGFloat JNWSpringAnimationMinimumThreshold = 0.0001f;
 		CGRect toValue = [self.toValue jnw_rectValue];
 		values = [self valuesFrom:@(fromValue.origin.x) to:@(toValue.origin.x) from:@(fromValue.origin.y) to:@(toValue.origin.y) from:@(fromValue.size.width) to:@(toValue.size.width) from:@(fromValue.size.height) to:@(toValue.size.height) map:^id(CGFloat value1, CGFloat value2, CGFloat value3, CGFloat value4) {
 			return [NSValue jnw_valueWithRect:CGRectMake(value1, value2, value3, value4)];
+		}];
+	} else if ([self.keyPath isEqualToString:@"bounds.size"]) {
+		CGSize fromValue = [self.fromValue jnw_sizeValue];
+		CGSize toValue = [self.toValue jnw_sizeValue];
+		values = [self valuesFrom:@(fromValue.width) to:@(toValue.width) from:@(fromValue.height) to:@(toValue.height) map:^id(CGFloat value1, CGFloat value2) {
+			return [NSValue jnw_valueWithSize:CGSizeMake(value1, value2)];
 		}];
 	}
 	
