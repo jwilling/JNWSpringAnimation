@@ -6,7 +6,8 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = { "Jonathan Willing" => "jwilling@me.com" }
   s.source       = { :git => "https://github.com/jwilling/JNWSpringAnimation.git", :tag => "0.1" }
-  s.platform     = :ios, '5.0'
+  s.ios.deployment_target = '5.0'
+  s.osx.deployment_target = '10.7'
   s.source_files = '*.{h,m}'
   s.public_header_files = '*.h'
   s.frameworks = 'QuartzCore'
