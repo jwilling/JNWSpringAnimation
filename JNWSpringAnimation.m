@@ -96,107 +96,102 @@ static const CGFloat JNWSpringAnimationMinimumThreshold = 0.0001f;
 		[self.keyPath isEqualToString:@"transform.translation.z"] ||
 		[self.keyPath rangeOfString:@"transform.rotation"].location != NSNotFound ||
 		[self.keyPath rangeOfString:@"transform.scale"].location != NSNotFound) {
-		values = [self valuesFrom:self.fromValue to:self.toValue map:^id(CGFloat value) {
-			return @(value);
-		}];
+        values = [self valuesFromNumbers:@[self.fromValue] toNumbers:@[self.toValue] map:^id(CGFloat *values, NSUInteger count) {
+            return @(values[0]);
+        }];
 	} else if ([self.keyPath isEqualToString:@"position"]) {
 		CGPoint fromValue = [self.fromValue jnw_pointValue];
 		CGPoint toValue = [self.toValue jnw_pointValue];
-		values = [self valuesFrom:@(fromValue.x) to:@(toValue.x) from:@(fromValue.y) to:@(toValue.y) map:^id(CGFloat value1, CGFloat value2) {
-			return [NSValue jnw_valueWithPoint:CGPointMake(value1, value2)];
-		}];
-	}
-	// This is not implemented correctly, and has therefore been omitted from the compatible key paths in the header
-	else if ([self.keyPath isEqualToString:@"transform"]) {
-		CATransform3D fromValue = [self.fromValue CATransform3DValue];
-		CATransform3D toValue = [self.toValue CATransform3DValue];
-		values = [self valuesFrom:@(fromValue.m11) to:@(toValue.m11) from:@(fromValue.m22) to:@(toValue.m22) from:@(fromValue.m33) to:@(toValue.m33) map:^id(CGFloat value1, CGFloat value2, CGFloat value3) {
-			return [NSValue valueWithCATransform3D:CATransform3DMakeScale(value1, value2, value3)];
-		}];
-	} else if ([self.keyPath isEqualToString:@"transform.translation"]) {
+        values = [self valuesFromNumbers:@[@(fromValue.x), @(fromValue.y)] toNumbers:@[@(toValue.x), @(toValue.y)] map:^id(CGFloat *values, NSUInteger count) {
+            return [NSValue jnw_valueWithPoint:CGPointMake(values[0], values[1])];
+        }];
+	} else if ([self.keyPath isEqualToString:@"transform.translation"] || [self.keyPath isEqualToString:@"bounds.size"]) {
 		CGSize fromValue = [self.fromValue jnw_sizeValue];
 		CGSize toValue = [self.toValue jnw_sizeValue];
-		values = [self valuesFrom:@(fromValue.width) to:@(toValue.width) from:@(fromValue.height) to:@(toValue.height) map:^id(CGFloat value1, CGFloat value2) {
-			return [NSValue jnw_valueWithSize:CGSizeMake(value1, value2)];
-		}];
+        values = [self valuesFromNumbers:@[@(fromValue.width), @(fromValue.height)]
+                               toNumbers:@[@(toValue.width), @(toValue.height)] map:^id(CGFloat *values, NSUInteger count) {
+                                   return [NSValue jnw_valueWithSize:CGSizeMake(values[0], values[1])];
+                               }];
 	} else if ([self.keyPath isEqualToString:@"bounds"]) { // the `frame` property is not animatable
 		CGRect fromValue = [self.fromValue jnw_rectValue];
 		CGRect toValue = [self.toValue jnw_rectValue];
-		values = [self valuesFrom:@(fromValue.origin.x) to:@(toValue.origin.x) from:@(fromValue.origin.y) to:@(toValue.origin.y) from:@(fromValue.size.width) to:@(toValue.size.width) from:@(fromValue.size.height) to:@(toValue.size.height) map:^id(CGFloat value1, CGFloat value2, CGFloat value3, CGFloat value4) {
-			return [NSValue jnw_valueWithRect:CGRectMake(value1, value2, value3, value4)];
-		}];
-	} else if ([self.keyPath isEqualToString:@"bounds.size"]) {
-		CGSize fromValue = [self.fromValue jnw_sizeValue];
-		CGSize toValue = [self.toValue jnw_sizeValue];
-		values = [self valuesFrom:@(fromValue.width) to:@(toValue.width) from:@(fromValue.height) to:@(toValue.height) map:^id(CGFloat value1, CGFloat value2) {
-			return [NSValue jnw_valueWithSize:CGSizeMake(value1, value2)];
-		}];
-	}
-	
+        values = [self valuesFromNumbers:@[@(fromValue.origin.x), @(fromValue.origin.y), @(fromValue.size.width), @(fromValue.size.height)]
+                               toNumbers:@[@(toValue.origin.x), @(toValue.origin.y), @(toValue.size.width), @(toValue.size.height)]
+                                     map:^id(CGFloat *values, NSUInteger count) {
+                                         return [NSValue jnw_valueWithRect:CGRectMake(values[0], values[1], values[2], values[3])];
+                                     }];
+	} else if ([self.keyPath isEqualToString:@"transform"]) {
+		CATransform3D f = [self.fromValue CATransform3DValue];
+		CATransform3D t = [self.toValue CATransform3DValue];
+
+        values = [self valuesFromNumbers:@[@(f.m11), @(f.m12), @(f.m13), @(f.m14), @(f.m21), @(f.m22), @(f.m23), @(f.m24), @(f.m31), @(f.m32), @(f.m33), @(f.m34), @(f.m41), @(f.m42), @(f.m43), @(f.m44) ]
+                               toNumbers:@[@(t.m11), @(t.m12), @(t.m13), @(t.m14), @(t.m21), @(t.m22), @(t.m23), @(t.m24), @(t.m31), @(t.m32), @(t.m33), @(t.m34), @(t.m41), @(t.m42), @(t.m43), @(t.m44) ] map:^id(CGFloat *values, NSUInteger count) {
+                                   CATransform3D transform = CATransform3DIdentity;
+                                   transform.m11 = values[0];
+                                   transform.m12 = values[1];
+                                   transform.m13 = values[2];
+                                   transform.m14 = values[3];
+                                   transform.m21 = values[4];
+                                   transform.m22 = values[5];
+                                   transform.m23 = values[6];
+                                   transform.m24 = values[7];
+                                   transform.m31 = values[8];
+                                   transform.m32 = values[9];
+                                   transform.m33 = values[10];
+                                   transform.m34 = values[11];
+                                   transform.m41 = values[12];
+                                   transform.m42 = values[13];
+                                   transform.m43 = values[14];
+                                   transform.m44 = values[15];
+                                   return [NSValue valueWithCATransform3D:transform];
+                               }];
+
+        //NSLog(@"m11: %f, m12: %f, m13: %f, m14: %f, m21: %f, m22: %f, m23: %f, m24: %f, m31: %f, m32: %f, m33: %f, m34: %f, m41: %f, m42: %f, m43: %f, m44: %f", t.m11, t.m12, t.m13, t.m14, t.m21, t.m22, t.m23, t.m24, t.m31, t.m32, t.m33, t.m34, t.m41, t.m42, t.m43, t.m44);
+    }
+    
 	self.interpolatedValues = values;
 }
 
-- (NSArray *)valuesFrom:(NSNumber *)from to:(NSNumber *)to map:(id (^)(CGFloat value))map {
-	return [self valuesFrom:from to:to from:nil to:nil map:^id(CGFloat value1, CGFloat value2) {
-		return map(value1);
-	}];
-}
+- (NSArray *)valuesFromNumbers:(NSArray *)fromNumbers toNumbers:(NSArray *)toNumbers map:(id (^)(CGFloat *values, NSUInteger count))map {
+    NSAssert(fromNumbers.count == toNumbers.count, @"count of from and to numbers must be equal");
+    NSUInteger count = fromNumbers.count;
 
-- (NSArray *)valuesFrom:(NSNumber *)from1 to:(NSNumber *)to1 from:(NSNumber *)from2 to:(NSNumber *)to2 map:(id (^)(CGFloat value1, CGFloat value2))map {
-	return [self valuesFrom:from1 to:to1 from:from2 to:to2 from:nil to:nil map:^id(CGFloat value1, CGFloat value2, CGFloat value3) {
-		return map(value1, value2);
-	}];
-}
+    CGFloat *distances = calloc(count, sizeof(CGFloat));
+    CGFloat *thresholds = calloc(count, sizeof(CGFloat));
+    for (NSInteger i = 0; i < count; i++) {
+        distances[i] = [toNumbers[i] floatValue] - [fromNumbers[i] floatValue];
+        thresholds[i] = JNWSpringAnimationThreshold(fabsf(distances[i]));
+    }
 
-- (NSArray *)valuesFrom:(NSNumber *)from1 to:(NSNumber *)to1 from:(NSNumber *)from2 to:(NSNumber *)to2 from:(NSNumber *)from3 to:(NSNumber *)to3 map:(id (^)(CGFloat value1, CGFloat value2, CGFloat value3))map {
-	return [self valuesFrom:from1 to:to1 from:from2 to:to2 from:from3 to:to3 from:nil to:nil map:^id(CGFloat value1, CGFloat value2, CGFloat value3, CGFloat value4) {
-		return map(value1, value2, value3);
-	}];
-}
+    CFTimeInterval step = JNWSpringAnimationKeyframeStep;
+    CFTimeInterval elapsed = 0;
 
-- (NSArray *)valuesFrom:(NSNumber *)from1 to:(NSNumber *)to1 from:(NSNumber *)from2 to:(NSNumber *)to2 from:(NSNumber *)from3 to:(NSNumber *)to3 from:(NSNumber *)from4 to:(NSNumber *)to4 map:(id (^)(CGFloat value1, CGFloat value2, CGFloat value3, CGFloat value4))map {
-	CGFloat distance1 = to1.floatValue - from1.floatValue;
-	CGFloat distance2 = to2.floatValue - from2.floatValue;
-	CGFloat distance3 = to3.floatValue - from3.floatValue;
-	CGFloat distance4 = to4.floatValue - from4.floatValue;
-	
-	CGFloat threshold1 = JNWSpringAnimationThreshold(fabsf(distance1));
-	CGFloat threshold2 = JNWSpringAnimationThreshold(fabsf(distance2));
-	CGFloat threshold3 = JNWSpringAnimationThreshold(fabsf(distance3));
-	CGFloat threshold4 = JNWSpringAnimationThreshold(fabsf(distance4));
-	
-	CFTimeInterval step = JNWSpringAnimationKeyframeStep;
-	CFTimeInterval elapsed = 0;
-	
-	CGFloat value1 = 0;
-	CGFloat value2 = 0;
-	CGFloat value3 = 0;
-	CGFloat value4 = 0;
-	
-	NSMutableArray *valuesArray = [NSMutableArray array];
-	while (YES) {
-		
-		CGFloat proposedValue1 = JNWAbsolutePosition(distance1, elapsed, 0, self.damping, self.mass, self.stiffness, from1.floatValue);
-		CGFloat proposedValue2 = JNWAbsolutePosition(distance2, elapsed, 0, self.damping, self.mass, self.stiffness, from2.floatValue);
-		CGFloat proposedValue3 = JNWAbsolutePosition(distance3, elapsed, 0, self.damping, self.mass, self.stiffness, from3.floatValue);
-		CGFloat proposedValue4 = JNWAbsolutePosition(distance4, elapsed, 0, self.damping, self.mass, self.stiffness, from4.floatValue);
-		
-		if (JNWThresholdReached(value1, proposedValue1, to1.floatValue, threshold1) &&
-			JNWThresholdReached(value2, proposedValue2, to2.floatValue, threshold2) &&
-			JNWThresholdReached(value3, proposedValue3, to3.floatValue, threshold3) &&
-			JNWThresholdReached(value4, proposedValue4, to4.floatValue, threshold4))
-			break;
-		
-		value1 = proposedValue1;
-		value2 = proposedValue2;
-		value3 = proposedValue3;
-		value4 = proposedValue4;
-		
-		[valuesArray addObject:map(value1, value2, value3, value4)];
-		elapsed += step;
-	}
-	
-	return valuesArray;
+    CGFloat *stepValues = calloc(count, sizeof(CGFloat));
+    CGFloat *stepProposedValues = calloc(count, sizeof(CGFloat));
+
+    NSMutableArray *valuesMapped = [NSMutableArray array];
+    while (YES) {
+        BOOL thresholdReached = YES;
+        
+        for (NSInteger i = 0; i < count; i++) {
+            stepProposedValues[i] = JNWAbsolutePosition(distances[i], elapsed, 0, self.damping, self.mass, self.stiffness, [fromNumbers[i] floatValue]);
+
+            if (thresholdReached)
+                thresholdReached = JNWThresholdReached(stepValues[i], stepProposedValues[i], [toNumbers[i] floatValue], thresholds[i]);
+        }
+
+        if (thresholdReached)
+            break;
+
+        for (NSInteger i = 0; i < count; i++) {
+            stepValues[i] = stepProposedValues[i];
+        }
+
+        [valuesMapped addObject:map(stepValues, count)];
+        elapsed += step;
+    }
+
+    return valuesMapped;
 }
 
 BOOL JNWThresholdReached(CGFloat previousValue, CGFloat proposedValue, CGFloat finalValue, CGFloat threshold) {

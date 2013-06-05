@@ -40,6 +40,7 @@
 // - transform.rotation.{x, y, z}
 // - transform.scale.{x, y, z}
 // - transform.translation
+// - transform (** experimental **)
 + (instancetype)animationWithKeyPath:(NSString *)path;
 
 // A damped spring can be modeled with the following equation:

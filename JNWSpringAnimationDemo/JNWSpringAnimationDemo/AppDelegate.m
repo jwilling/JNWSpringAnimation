@@ -25,7 +25,7 @@ static const NSInteger boxLength = 50;
 }
 
 - (void)awakeFromNib {
-	self.stiffness = @(300);
+	self.stiffness = @(300); 
 	self.damping = @(30);
 	self.mass = @(6);
 	
@@ -37,7 +37,7 @@ static const NSInteger boxLength = 50;
 	self.redBox.backgroundColor = [NSColor redColor].CGColor;
 	self.redBox.bounds = CGRectMake(0, 0, boxLength, boxLength);
 	self.redBox.position = CGPointMake(boxInset, CGRectGetHeight(self.containerView.bounds) / 2);
-	
+
 	[self.containerView.layer addSublayer:self.redBox];
 }
 
@@ -57,7 +57,7 @@ static const NSInteger boxLength = 50;
 			break;
 		case 1:
 			keyPath = @"position";
-			animation.toValue = [NSValue valueWithPoint:CGPointMake(CGRectGetWidth(self.containerView.bounds) - boxInset, 0)];
+			animation.toValue = [NSValue valueWithPoint:CGPointMake(300, 60)];
 			animation.fromValue = [NSValue valueWithPoint:self.redBox.position];
 			break;
 		case 2:
@@ -82,6 +82,14 @@ static const NSInteger boxLength = 50;
 			animation.toValue = [NSValue valueWithRect:CGRectMake(0, 0, 130, 130)];
 			animation.fromValue = [NSValue valueWithRect:self.redBox.bounds];
 			break;
+        case 6:
+            keyPath = @"transform";
+            CATransform3D transform = CATransform3DIdentity;
+            transform.m34 = -1.0 / 90.0;
+            transform = CATransform3DRotate(transform, M_PI_2 - .01, 1, 0, 0);
+            animation.fromValue = [NSValue valueWithCATransform3D:transform];
+            animation.toValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];
+            break;
 	
 		default:
 			break;
