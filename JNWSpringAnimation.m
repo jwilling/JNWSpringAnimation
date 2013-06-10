@@ -154,7 +154,13 @@ static const CGFloat JNWSpringAnimationMinimumThreshold = 0.0001f;
 
 - (NSArray *)valuesFromNumbers:(NSArray *)fromNumbers toNumbers:(NSArray *)toNumbers map:(id (^)(CGFloat *values, NSUInteger count))map {
 	NSAssert(fromNumbers.count == toNumbers.count, @"count of from and to numbers must be equal");
+	
 	NSUInteger count = fromNumbers.count;
+	
+	// This will never happen, but this is peformed in order to shush the analyzer.
+	if (count < 1) {
+		return [NSArray array];
+	}	
 	
 	CGFloat *distances = calloc(count, sizeof(CGFloat));
 	CGFloat *thresholds = calloc(count, sizeof(CGFloat));
