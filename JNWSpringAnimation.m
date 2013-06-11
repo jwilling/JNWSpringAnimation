@@ -196,6 +196,11 @@ static const CGFloat JNWSpringAnimationMinimumThreshold = 0.0001f;
 		[valuesMapped addObject:map(stepValues, count)];
 		elapsed += step;
 	}
+
+	free(distances);
+	free(thresholds);
+	free(stepValues);
+	free(stepProposedValues);
 	
 	return valuesMapped;
 }
