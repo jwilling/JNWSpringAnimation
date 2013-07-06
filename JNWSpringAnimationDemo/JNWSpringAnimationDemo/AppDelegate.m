@@ -103,6 +103,25 @@ static const NSInteger boxLength = 50;
 	[self.redBox addAnimation:animation forKey:keyPath];
 }
 
+- (IBAction)sliderDidChange:(id)sender {
+	[NSObject cancelPreviousPerformRequestsWithTarget:self];
+	[self performSelector:@selector(animate:) withObject:self afterDelay:0.3];
+}
+
+- (IBAction)copyCode:(id)sender {
+	NSString *varName = @"spring";
+	if ([self.codeVariableName.stringValue length] > 0) {
+		varName = self.codeVariableName.stringValue;
+	}
+	
+	NSString *code = [NSString stringWithFormat:@"%@.damping = %.2f;\n%@.stiffness = %.2f;\n%@.mass = %.2f;", varName, [self.damping floatValue], varName, [self.stiffness floatValue], varName, [self.mass floatValue]];
+	
+	
+	NSPasteboard *pasteBoard = [NSPasteboard generalPasteboard];
+	[pasteBoard declareTypes:@[NSPasteboardTypeString] owner:nil];
+	[pasteBoard setString:code forType:NSPasteboardTypeString];
+}
+
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
 	NSLog(@"Animation completed.");
 }
