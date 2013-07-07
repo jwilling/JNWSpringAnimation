@@ -99,7 +99,7 @@ static const CGFloat JNWSpringAnimationMinimumThreshold = 0.0001f;
 		values = [self valuesFromNumbers:@[self.fromValue] toNumbers:@[self.toValue] map:^id(CGFloat *values, NSUInteger count) {
 			return @(values[0]);
 		}];
-	} else if ([self.keyPath isEqualToString:@"position"]) {
+	} else if ([self.keyPath isEqualToString:@"position"] || [self.keyPath isEqualToString:@"frameOrigin"]) {
 		CGPoint fromValue = [self.fromValue jnw_pointValue];
 		CGPoint toValue = [self.toValue jnw_pointValue];
 		values = [self valuesFromNumbers:@[@(fromValue.x), @(fromValue.y)] toNumbers:@[@(toValue.x), @(toValue.y)] map:^id(CGFloat *values, NSUInteger count) {
