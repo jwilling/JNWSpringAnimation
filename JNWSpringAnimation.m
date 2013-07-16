@@ -83,6 +83,14 @@ static const CGFloat JNWSpringAnimationMinimumThreshold = 0.0001f;
 	return self.interpolatedValues;
 }
 
+- (void)setDamping:(CGFloat)damping {
+	if (damping <= 0) {
+		NSLog(@"[%@] LOGIC ERROR. `damping` should be > 0.0f to avoid an infinite spring calculation", NSStringFromClass([self class]));
+		damping = 1.0f;
+	}
+	_damping = damping;
+}
+
 - (void)calculateInterpolatedValues {
 	NSAssert(self.fromValue != nil && self.toValue != nil, @"fromValue and or toValue must not be nil.");
 	NSArray *values = nil;
