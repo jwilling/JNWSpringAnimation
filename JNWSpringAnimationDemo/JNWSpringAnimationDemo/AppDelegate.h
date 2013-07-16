@@ -15,7 +15,7 @@
 
 @property (nonatomic, assign) IBOutlet NSView *containerView;
 @property (nonatomic, strong) CALayer *redBox;
-@property (weak) IBOutlet NSTextField *codeVariableName;
+@property (nonatomic, weak) IBOutlet NSTextField *codeVariableName;
 
 - (IBAction)animate:(id)sender;
 - (IBAction)sliderDidChange:(id)sender;
