@@ -105,12 +105,19 @@ static const CGFloat JNWSpringAnimationMinimumThreshold = 0.0001f;
 		values = [self valuesFromNumbers:@[self.fromValue] toNumbers:@[self.toValue] map:^id(CGFloat *values, NSUInteger count) {
 			return @(values[0]);
 		}];
+<<<<<<< HEAD
 	} else if (fromType == JNWValueTypePoint) {
 		CGPoint f = [self.fromValue jnw_pointValue];
 		CGPoint t = [self.toValue jnw_pointValue];
 		values = [self valuesFromNumbers:@[@(f.x), @(f.y)]
 							   toNumbers:@[@(t.x), @(t.y)]
 									 map:^id(CGFloat *values, NSUInteger count) {
+=======
+	} else if ([self.keyPath isEqualToString:@"position"] || [self.keyPath isEqualToString:@"frameOrigin"]) {
+		CGPoint fromValue = [self.fromValue jnw_pointValue];
+		CGPoint toValue = [self.toValue jnw_pointValue];
+		values = [self valuesFromNumbers:@[@(fromValue.x), @(fromValue.y)] toNumbers:@[@(toValue.x), @(toValue.y)] map:^id(CGFloat *values, NSUInteger count) {
+>>>>>>> master
 			return [NSValue jnw_valueWithPoint:CGPointMake(values[0], values[1])];
 		}];
 	} else if (fromType == JNWValueTypeSize) {
