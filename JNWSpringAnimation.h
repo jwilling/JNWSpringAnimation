@@ -40,7 +40,7 @@
 // - transform.rotation.{x, y, z}
 // - transform.scale.{x, y, z}
 // - transform.translation
-// - transform (** experimental **)
+// - transform (** experimental, only performs linear interpolation on all components **)
 + (instancetype)animationWithKeyPath:(NSString *)path;
 
 // A damped spring can be modeled with the following equation:
