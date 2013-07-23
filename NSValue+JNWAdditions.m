@@ -34,6 +34,10 @@
 	return [self CGPointValue];
 }
 
+- (CGAffineTransform)jnw_affineTransformValue {
+	return [self CGAffineTransformValue];
+}
+
 + (NSValue *)jnw_valueWithRect:(CGRect)rect {
 	return [self valueWithCGRect:rect];
 }
@@ -44,6 +48,10 @@
 
 + (NSValue *)jnw_valueWithSize:(CGSize)size {
 	return [self valueWithCGSize:size];
+}
+
++ (NSValue *)jnw_valueWithAffineTransform:(CGAffineTransform)transform {
+	return [self valueWithCGAffineTransform:transform];
 }
 
 #elif TARGET_OS_MAC
@@ -60,6 +68,12 @@
 	return [self pointValue];
 }
 
+- (CGAffineTransform)jnw_affineTransformValue {
+	CGAffineTransform transform;
+	[self getValue:&transform];
+	return transform;
+}
+
 + (NSValue *)jnw_valueWithRect:(CGRect)rect {
 	return [self valueWithRect:rect];
 }
@@ -70,6 +84,10 @@
 
 + (NSValue *)jnw_valueWithSize:(CGSize)size {
 	return [self valueWithSize:size];
+}
+
++ (NSValue *)jnw_valueWithAffineTransform:(CGAffineTransform)transform {
+	return [NSValue valueWithBytes:&transform objCType:@encode(CGAffineTransform)];
 }
 
 #endif
