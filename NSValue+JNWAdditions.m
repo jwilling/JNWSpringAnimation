@@ -74,4 +74,30 @@
 
 #endif
 
+- (JNWValueType)jnw_type {
+	const char *type = self.objCType;
+	
+	static const NSInteger numberofNumberTypes = 10;
+	static const char *numberTypes[numberofNumberTypes] = { "i", "s", "l", "q", "I", "S", "L", "Q", "f", "d" };
+	
+	for (NSInteger i = 0; i < numberofNumberTypes; i++) {
+		if (strcmp(type, numberTypes[i]) == 0) {
+			return JNWValueTypeNumber;
+		}
+	}
+	if (strcmp(type, @encode(CGPoint)) == 0) {
+		return JNWValueTypePoint;
+	} else if (strcmp(type, @encode(CGSize)) == 0) {
+		return JNWValueTypeSize;
+	} else if (strcmp(type, @encode(CGRect)) == 0) {
+		return JNWValueTypeRect;
+	} else if (strcmp(type, @encode(CGAffineTransform)) == 0) {
+		return JNWValueTypeAffineTransform;
+	} else if (strcmp(type, @encode(CATransform3D)) == 0) {
+		return JNWValueTypeTransform3D;
+	} else {
+		return JNWValueTypeUnknown;
+	}
+}
+
 @end

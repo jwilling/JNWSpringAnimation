@@ -18,6 +18,16 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, JNWValueType) {
+	JNWValueTypeNumber,
+	JNWValueTypePoint,
+	JNWValueTypeSize,
+	JNWValueTypeRect,
+	JNWValueTypeAffineTransform,
+	JNWValueTypeTransform3D,
+	JNWValueTypeUnknown
+};
+
 @interface NSValue (JNWAdditions)
 
 - (CGRect)jnw_rectValue;
@@ -27,5 +37,7 @@
 + (NSValue *)jnw_valueWithRect:(CGRect)rect;
 + (NSValue *)jnw_valueWithSize:(CGSize)size;
 + (NSValue *)jnw_valueWithPoint:(CGPoint)point;
+
+- (JNWValueType)jnw_type;
 
 @end
