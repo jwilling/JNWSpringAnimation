@@ -28,6 +28,7 @@ static const CGFloat JNWSpringAnimationMinimumThreshold = 0.0001f;
 
 @interface JNWSpringAnimation()
 @property (nonatomic, copy) NSArray *interpolatedValues;
+@property (nonatomic, assign) BOOL needsRecalculation;
 @end
 
 @implementation JNWSpringAnimation
@@ -43,7 +44,7 @@ static const CGFloat JNWSpringAnimationMinimumThreshold = 0.0001f;
 	_mass = JNWSpringAnimationDefaultMass;
 	_damping = JNWSpringAnimationDefaultDamping;
 	_stiffness = JNWSpringAnimationDefaultStiffness;
-	self.duration = 0.25;
+	_needsRecalculation = NO;
 	return self;
 }
 
@@ -51,9 +52,8 @@ static const CGFloat JNWSpringAnimationMinimumThreshold = 0.0001f;
 // take this opportunity to override the copy method and actually
 // calculate the key frames, and move those over to the new animation.
 - (id)copyWithZone:(NSZone *)zone {
-	[self calculateInterpolatedValues];
-	
 	JNWSpringAnimation *copy = [super copyWithZone:zone];
+	
 	copy.interpolatedValues = self.interpolatedValues;
 	copy.duration = self.interpolatedValues.count * JNWSpringAnimationKeyframeStep;
 	copy.fromValue = self.fromValue;
@@ -62,6 +62,8 @@ static const CGFloat JNWSpringAnimationMinimumThreshold = 0.0001f;
 	copy.damping = self.damping;
 	copy.mass = self.mass;
 	
+	copy.needsRecalculation = NO;
+	
 	return copy;
 }
 
@@ -69,14 +71,22 @@ static const CGFloat JNWSpringAnimationMinimumThreshold = 0.0001f;
 
 - (void)setToValue:(id)toValue {
 	_toValue = toValue;
+	self.needsRecalculation = YES;
 }
 
 - (void)setFromValue:(id)fromValue {
 	_fromValue = fromValue;
+	self.needsRecalculation = YES;
 }
 
-- (void)setDuration:(CFTimeInterval)duration {
-	[super setDuration:duration];
+- (void)setStiffness:(CGFloat)stiffness {
+	_stiffness = stiffness;
+	self.needsRecalculation = YES;
+}
+
+- (void)setMass:(CGFloat)mass {
+	_mass = mass;
+	self.needsRecalculation = YES;
 }
 
 - (NSArray *)values {
@@ -89,7 +99,26 @@ static const CGFloat JNWSpringAnimationMinimumThreshold = 0.0001f;
 		damping = 1.0f;
 	}
 	_damping = damping;
+	self.needsRecalculation = YES;
 }
+
+- (CFTimeInterval)duration {
+	if (self.fromValue != nil && self.toValue != nil) {
+		return self.interpolatedValues.count * JNWSpringAnimationKeyframeStep;
+	}
+	
+	return 0.f;
+}
+
+- (NSArray *)interpolatedValues {
+	if (self.needsRecalculation || _interpolatedValues == nil) {
+		[self calculateInterpolatedValues];
+	}
+	
+	return _interpolatedValues;
+}
+
+#pragma mark Interpolation
 
 - (void)calculateInterpolatedValues {
 	NSAssert(self.fromValue != nil && self.toValue != nil, @"fromValue and or toValue must not be nil.");
@@ -176,6 +205,7 @@ static const CGFloat JNWSpringAnimationMinimumThreshold = 0.0001f;
 	}
 	
 	self.interpolatedValues = values;
+	self.needsRecalculation = NO;
 }
 
 - (NSArray *)valuesFromNumbers:(NSArray *)fromNumbers toNumbers:(NSArray *)toNumbers map:(id (^)(CGFloat *values, NSUInteger count))map {
@@ -246,7 +276,7 @@ BOOL JNWCalculationsAreComplete(CGFloat value1, CGFloat proposedValue1, CGFloat 
 			&& (fabs(proposedValue3 - value3) < JNWSpringAnimationKeyframeStep) && (fabs(value3 - to3) < JNWSpringAnimationKeyframeStep));
 }
 
-#pragma mark Harmonic oscillation
+#pragma mark Damped Harmonic Oscillation
 
 
 CGFloat JNWAngularFrequency(CGFloat k, CGFloat m, CGFloat b) {

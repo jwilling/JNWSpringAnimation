@@ -98,7 +98,8 @@ static const NSInteger boxLength = 50;
 	animation.keyPath = keyPath;
 	animation.delegate = self;
 	
-	NSLog(@"%@",animation);
+	NSLog(@"Animation: %@",animation);
+	NSLog(@"Animation duration: %f", animation.duration);
 	
 	[self.redBox addAnimation:animation forKey:keyPath];
 }

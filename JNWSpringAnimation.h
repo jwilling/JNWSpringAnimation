@@ -72,4 +72,12 @@
 @property (nonatomic, strong) id fromValue;
 @property (nonatomic, strong) id toValue;
 
+// The duration, which is derived from the stiffness, damping, mass, and values.
+//
+// Note that this property will only return a non-zero value if both the `fromValue`
+// and the `toValue` properties have both been set.
+//
+// Defaults to 0 if no from or to values have been set.
+@property (nonatomic, assign, readonly) CFTimeInterval duration;
+
 @end
