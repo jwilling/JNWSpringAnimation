@@ -19,7 +19,6 @@
 #import "JNWSpringAnimation.h"
 #import "NSValue+JNWAdditions.h"
 
-static const NSInteger JNWSpringAnimationKeyframes = 60;
 static const CGFloat JNWSpringAnimationDefaultMass = 5.f;
 static const CGFloat JNWSpringAnimationDefaultDamping = 30.f;
 static const CGFloat JNWSpringAnimationDefaultStiffness = 300.f;
