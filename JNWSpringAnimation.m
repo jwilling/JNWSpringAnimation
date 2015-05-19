@@ -221,7 +221,7 @@ static const CGFloat JNWSpringAnimationMinimumThreshold = 0.0001f;
 	CGFloat *thresholds = calloc(count, sizeof(CGFloat));
 	for (NSInteger i = 0; i < count; i++) {
 		distances[i] = [toNumbers[i] floatValue] - [fromNumbers[i] floatValue];
-		thresholds[i] = JNWSpringAnimationThreshold(fabsf(distances[i]));
+		thresholds[i] = JNWSpringAnimationThreshold(fabs(distances[i]));
 	}
 	
 	CFTimeInterval step = JNWSpringAnimationKeyframeStep;
@@ -261,8 +261,8 @@ static const CGFloat JNWSpringAnimationMinimumThreshold = 0.0001f;
 }
 
 BOOL JNWThresholdReached(CGFloat previousValue, CGFloat proposedValue, CGFloat finalValue, CGFloat threshold) {
-	CGFloat previousDifference = fabsf(proposedValue - previousValue);
-	CGFloat finalDifference = fabsf(previousValue - finalValue);
+	CGFloat previousDifference = fabs(proposedValue - previousValue);
+	CGFloat finalDifference = fabs(previousValue - finalValue);
 	if (previousDifference <= threshold && finalDifference <= threshold) {
 		return YES;
 	}
