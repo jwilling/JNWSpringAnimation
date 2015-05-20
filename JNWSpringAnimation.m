@@ -123,7 +123,7 @@ static const CGFloat JNWSpringAnimationMinimumThreshold = 0.0001f;
 	NSAssert(self.fromValue != nil && self.toValue != nil, @"fromValue and or toValue must not be nil.");
 	
 	JNWValueType fromType = [self.fromValue jnw_type];
-	JNWValueType toType = [self.toValue jnw_type];
+	__unused JNWValueType toType = [self.toValue jnw_type];
 	NSAssert(fromType == toType, @"fromValue and toValue must be of the same type.");
 	NSAssert(fromType != JNWValueTypeUnknown, @"Type of value could not be determined. Please ensure the value types are supported.");
 	
