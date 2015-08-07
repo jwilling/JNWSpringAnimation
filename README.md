@@ -1,7 +1,7 @@
 ## JNWSpringAnimation ##
 `JNWSpringAnimation` is a subclass of `CAKeyframeAnimation` that adds support for creating damped harmonic animations.
 
-![](http://appjon.com/assets/github/JNWSpringAnimation.gif)
+![](http://jwilling.com/serve/github/jnwspringanimation/preview.gif)
 
 ## Getting Started ##
 Although `JNWSpringAnimation` is a subclass of `CAKeyframeAnimation`, it should be treated as if it were a subclass of `CABasicAnimation`. 
