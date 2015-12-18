@@ -155,7 +155,7 @@
 		ABB1A1C616CF15440009FA03 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = AppJon;
 			};
 			buildConfigurationList = ABB1A1C916CF15440009FA03 /* Build configuration list for PBXProject "JNWSpringAnimationDemo" */;
@@ -244,6 +244,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -295,6 +296,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JNWSpringAnimationDemo/JNWSpringAnimationDemo-Prefix.pch";
 				INFOPLIST_FILE = "JNWSpringAnimationDemo/JNWSpringAnimationDemo-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.AppJon.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -307,6 +309,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JNWSpringAnimationDemo/JNWSpringAnimationDemo-Prefix.pch";
 				INFOPLIST_FILE = "JNWSpringAnimationDemo/JNWSpringAnimationDemo-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.AppJon.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
