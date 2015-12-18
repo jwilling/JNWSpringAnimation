@@ -18,6 +18,12 @@
 
 #import <Foundation/Foundation.h>
 
+#ifdef __IPHONE_OS_VERSION_MIN_REQUIRED
+#import <UIKit/UIKit.h>
+#elif TARGET_OS_MAC
+#import <AppKit/AppKit.h>
+#endif
+
 typedef NS_ENUM(NSInteger, JNWValueType) {
 	JNWValueTypeNumber,
 	JNWValueTypePoint,
