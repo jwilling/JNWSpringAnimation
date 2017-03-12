@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "JNWSpringAnimation"
-  s.version      = "0.7.1"
+  s.version      = "0.7.2"
   s.summary      = "JNWSpringAnimation is a subclass of CAKeyframeAnimation that adds support for creating damped harmonic animations."
   s.homepage     = "https://github.com/jwilling/JNWSpringAnimation"
   s.license      = 'MIT'
